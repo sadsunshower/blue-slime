@@ -34,7 +34,8 @@ def load_config() -> bool:
         for key in tmp_config['profiles']:
             config['profiles'][key] = profile.Profile(
                 tmp_config['profiles'][key]['command'],
-                tmp_config['profiles'][key]['console']
+                tmp_config['profiles'][key]['console'],
+                tmp_config['profiles'][key].get('directory')
             )
 
     return True

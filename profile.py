@@ -1,16 +1,17 @@
 import subprocess, typing
 
 class Profile():
-    def __init__(self, command: typing.List[str], console: bool) -> None:
+    def __init__(self, command: typing.List[str], console: bool, directory: typing.Optional[str]) -> None:
         self._command = command
         self._console = console
+        self._directory = directory
         self._underlying = None
 
     def __str__(self) -> str:
         return f'Profile for {self._command}; console access: {self._console}'
 
     def run(self) -> None:
-        self._underlying = subprocess.Popen(self._command, stdin=subprocess.PIPE, text=True)
+        self._underlying = subprocess.Popen(self._command, cwd=self._directory, stdin=subprocess.PIPE, text=True)
     
     def console_allowed(self) -> bool:
         return self._console
