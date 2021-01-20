@@ -10,7 +10,7 @@ bot = discord.ext.commands.Bot(command_prefix='?')
 
 @bot.command()
 async def run(ctx, key: str) -> None:
-    if ctx.channel.id != config.get_channel():
+    if ctx.channel.id not in config.get_channels():
         await ctx.channel.send('Not authorised to run in this channel!')
         return
 
@@ -25,7 +25,7 @@ async def run(ctx, key: str) -> None:
 
 @bot.command()
 async def console(ctx, key: str, *args) -> None:
-    if ctx.channel.id != config.get_channel():
+    if ctx.channel.id not in config.get_channels():
         await ctx.channel.send('Not authorised to run in this channel!')
         return
 
@@ -48,7 +48,7 @@ async def console(ctx, key: str, *args) -> None:
 
 @bot.command()
 async def check(ctx, key: str) -> None:
-    if ctx.channel.id != config.get_channel():
+    if ctx.channel.id not in config.get_channels():
         await ctx.channel.send('Not authorised to run in this channel!')
         return
 
@@ -65,7 +65,7 @@ async def check(ctx, key: str) -> None:
 
 @bot.command()
 async def kill(ctx, key: str) -> None:
-    if ctx.channel.id != config.get_channel():
+    if ctx.channel.id not in config.get_channels():
         await ctx.channel.send('Not authorised to run in this channel!')
         return
 

@@ -4,7 +4,7 @@ import json, os.path, typing
 
 CONFIG_TEMPLATE = {
     'token' : 'YOUR_TOKEN_HERE',
-    'channel' : 0,
+    'channel' : [0],
     'profiles' : {
         'hello' : {
             'command' : ['echo', 'Hello world!'],
@@ -43,7 +43,7 @@ def load_config() -> bool:
 def get_token() -> str:
     return config['token']
 
-def get_channel() -> int:
+def get_channels() -> typing.List[int]:
     return config['channel']
 
 def get_profile(key: str) -> typing.Optional[profile.Profile]:

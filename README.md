@@ -37,7 +37,7 @@ pip3 install discord.py
 
 ## `config.json` Format
 
-The config file has three top-level fields, `token` is the Discord bot token, `channel` is the ID (as an integer, not a string) where you plan to use the bot, and `profiles` is a dictionary of profiles you plan to run.
+The config file has three top-level fields, `token` is the Discord bot token, `channel` is the list of IDs (as a integers, not strings) where you plan to use the bot, and `profiles` is a dictionary of profiles you plan to run.
 
 Each profile has a key, which should be a short one-word description of the game server (e.g. `modded`, `vanilla`, `creative`), the value is another dictionary containing the following fields:
 
